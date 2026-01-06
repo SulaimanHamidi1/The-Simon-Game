@@ -4,21 +4,16 @@ var userClickedPattern = [];
 var level = 0;
 var started = false;
 
-$(document).keypress(function () {
-    if (!started) {
-        $("#level-title").text("Level " + level);
+function start (){
+    if (!started){
+        $("#level-title").text("level " + level);
         nextSequence();
         started = true;
     }
-});
+}
 
-$(document).on("touchstart", () => {
-    if (!started) {
-        $("#level-title").text("Level " + level);
-        nextSequence();
-        started = true;
-    }
-});
+$(document).keypress(start);
+$(document).click(start);
 
 $(".btn").click(function (){
     var userChosenColor = $(this).attr("id");
